@@ -6,4 +6,4 @@ searchButton.addEventListener('click', () => {
     let finalUrl = `https://restcountries.com/v3.1/name/${name}?fullText=true`;
 
     console.log(finalUrl);
-});
+})
