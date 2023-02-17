@@ -3,6 +3,14 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.218);;
+    height: auto;
+    width: 600px;
+    margin-top: 100px;
+    
+}
+
+.container2{
+       background-color: rgba(255, 255, 255, 0.218);;
     height: 400px;
     width: 600px;
     margin-top: 100px;
@@ -16,9 +24,9 @@ h1{
     margin-right: auto;
 }
 
-.topinputbox{
+/* .topinputbox{
     margin-top: -340px;
-}
+} */
 
 #button-addon2{
     color: white;
