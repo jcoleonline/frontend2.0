@@ -13,14 +13,22 @@
 
 <body>
     <div class="container">
-    <form action="" autocomplete="off">
-        <div id="autocomplete-wrapper" class="autocomplete-wrapper">
-            <input id="autocomplete-input" type="text" placeholder="Country">
-        </div>
-        <button type="submit" class="btn-submit">Send</button>
-    </form>
-</div>
+        <form action="" autocomplete="off">
+            <div id="autocomplete-wrapper" class="autocomplete-wrapper">
+                <input id="autocomplete-input" type="text" placeholder="Country">
+            </div>
+            <button type="submit" class="btn-submit">Send</button>
+        </form>
+    </div>
 
+    <!-- CURRENCY SELECTOR HTML -->
+    <select name="start_currency" id="start_currency_selector"></select>
+    <select name="final_currency" id="final_currency_selector"></select>
+    <br>
+    <input type="number" name="" id="" disabled value="0">
+    <input type="number" name="" id="final_currency_inpt" disabled value="0">
+    <!-- SCRIPT INSERTION -->
     <script src="script.js"></script>
 </body>
+
 </html>

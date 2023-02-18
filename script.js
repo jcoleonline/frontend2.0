@@ -104,6 +104,35 @@ removeAutocompleteDropdown();
 
 //     });
 // });
+let startingCurrency = document.querySelector("#start_currency_selector")
+let finalCurrency = document.querySelector("#final_currency_selector")
+
+
+//     console.log(finalUrl);
+// })
+
+// Currency Convert
+const currencyBaseURL = "https://api.exchangerate.host/"
+const currencyList = () => {
+    fetch(`${currencyBaseURL}symbols`)
+        .then(response => response.json())
+        .then(data => {
+            let countryCode = Object.keys(data.symbols)
+            for (currentCountry of countryCode) {
+                startingCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
+                finalCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
+            }
+        });
+}
+currencyList()
+
+const currencyConvert = () => {
+    let baseURL = `https://api.exchangerate.host/convert?from=${startingCurrency}&to=${finalCurrency}`
+    fetch(baseURL)
+        .then(response => response.json())
+        .then(data => console.log(data))
 
 
 
+    console.log("test")
+}
