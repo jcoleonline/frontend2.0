@@ -12,13 +12,15 @@
 </head>
 
 <body>
-    <div class="d-flex justify-content-center align-items-start container">
-        <div class="input-group mb-3 topinputbox">
-            <input type="text" class="form-control" placeholder="Enter a country name here..."
-                aria-label="Countries name " aria-describedby="button-addon2" id="search-bar">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+    <div class="container">
+    <form action="" autocomplete="off">
+        <div id="autocomplete-wrapper" class="autocomplete-wrapper">
+            <input id="autocomplete-input" type="text" placeholder="Country">
         </div>
-    </div> -->
+        <button type="submit" class="btn-submit">Send</button>
+    </form>
+</div>
+
     <script src="script.js"></script>
 </body>
 </html>
