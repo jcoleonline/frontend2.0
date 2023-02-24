@@ -17,6 +17,7 @@ async function getCountryData() {
   });
 }
 
+
 //-----
 
 function onInputChange() {
