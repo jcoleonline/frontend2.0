@@ -1,4 +1,5 @@
-const inputEl = document.querySelector("#autocomplete-input")
+
+let inputEl = document.querySelector("#autocomplete-input")
 
 inputEl.addEventListener("input", onInputChange);
 
@@ -16,6 +17,7 @@ async function getCountryData() {
     return country.name.common;
   });
 }
+
 
 //-----
 
@@ -68,13 +70,11 @@ function removeAutocompleteDropdown() {
 function onCountryButtonClick(e) {
   e.preventDefault();
 
-  removeAutocompleteDropdown();
+
   const buttonEl = e.target;
   inputEl.value = buttonEl.innerHTML;
 
-  console.log(inputEl.value)
-
-  
+  removeAutocompleteDropdown();
 
 }
 
@@ -133,6 +133,7 @@ const currencyList = () => {
 }
 currencyList()
 
+
 // Currency conversion - uses same base URL from list creator
 
 const currencyConvert = () => {
@@ -144,3 +145,42 @@ const currencyConvert = () => {
     )
 }
 convertCurrencyButton.addEventListener('click', currencyConvert)
+// --------country info
+const sendButton = document.querySelector(".btn-submit");
+const countryDiv = document.querySelector(".country_info_container");
+const countryData = document.querySelector("#Country_data");
+let countryCapital = document.querySelector('#Capital');
+let countryContinent = document.querySelector('#Continent');
+let countryPopulation = document.querySelector('#Population')
+let countryCurrency = document.querySelector('#Country-Currency')
+let countryFlag = document.querySelector('#flag-container')
+
+function countryInfo() {
+
+  let countryName = inputEl.value;
+  console.log(countryName);
+
+  let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+
+  fetch(finalURL)
+    .then((response) => response.json())
+    .then((data) => {
+
+      console.log(data)
+
+      countryFlag.innerHTML = `<img src="${data[0].flags.png}" id="Country-flag" class="country_flag align-items-center" alt="flag-picture">`
+
+      countryCapital.innerText = "Capital: " + data[0].capital
+
+      countryContinent.innerText = "Continent: " + data[0].continents
+
+      countryPopulation.innerText = "Population: " + data[0].population
+
+      countryCurrency.innerText = "Currency: " + Object.keys(data[0].currencies)[0]
+
+    })
+};
+
+sendButton.addEventListener("click", countryInfo);
+
+
