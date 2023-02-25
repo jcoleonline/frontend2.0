@@ -1,4 +1,5 @@
-const inputEl = document.querySelector("#autocomplete-input")
+
+let inputEl = document.querySelector("#autocomplete-input")
 
 inputEl.addEventListener("input", onInputChange);
 
@@ -25,7 +26,7 @@ function onInputChange() {
 
   const value = inputEl.value.toLowerCase();
 
-  if(value.length === 0)return;
+  if (value.length === 0) return;
 
   const filteredNames = [];
 
@@ -67,12 +68,12 @@ function removeAutocompleteDropdown() {
 //---
 
 function onCountryButtonClick(e) {
-e.preventDefault();
+  e.preventDefault();
 
-const buttonEl = e.target;
-inputEl.value = buttonEl.innerHTML;
+  const buttonEl = e.target;
+  inputEl.value = buttonEl.innerHTML;
 
-removeAutocompleteDropdown();
+  removeAutocompleteDropdown();
 
 }
 
@@ -86,7 +87,7 @@ removeAutocompleteDropdown();
 // let searchInput = document.getElementById("search-bar");
 
 // searchButton.addEventListener('click', () => {
-    
+
 //     let name = searchInput.value;
 //     let finalUrl = `https://restcountries.com/v3.1/name/${name}?fullText=true`;
 
@@ -115,25 +116,66 @@ let finalCurrency = document.querySelector("#final_currency_selector")
 // Currency Convert
 const currencyBaseURL = "https://api.exchangerate.host/"
 const currencyList = () => {
-    fetch(`${currencyBaseURL}symbols`)
-        .then(response => response.json())
-        .then(data => {
-            let countryCode = Object.keys(data.symbols)
-            for (currentCountry of countryCode) {
-                startingCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
-                finalCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
-            }
-        });
+  fetch(`${currencyBaseURL}symbols`)
+    .then(response => response.json())
+    .then(data => {
+      let countryCode = Object.keys(data.symbols)
+      for (currentCountry of countryCode) {
+        startingCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
+        finalCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
+      }
+    });
 }
 currencyList()
 
 const currencyConvert = () => {
-    let baseURL = `https://api.exchangerate.host/convert?from=${startingCurrency}&to=${finalCurrency}`
-    fetch(baseURL)
-        .then(response => response.json())
-        .then(data => console.log(data))
+  let baseURL = `https://api.exchangerate.host/convert?from=${startingCurrency}&to=${finalCurrency}`
+  fetch(baseURL)
+    .then(response => response.json())
+    .then(data => console.log(data))
 
 
 
-    console.log("test")
+  console.log("test")
 }
+
+
+// --------country info
+const sendButton = document.querySelector(".btn-submit");
+const countryDiv = document.querySelector(".country_info_container");
+const countryData = document.querySelector("#Country_data");
+let countryCapital = document.querySelector('#Capital');
+let countryContinent = document.querySelector('#Continent');
+let countryPopulation = document.querySelector('#Population')
+let countryCurrency = document.querySelector('#Country-Currency')
+let countryFlag = document.querySelector('#flag-container')
+
+function countryInfo() {
+
+  let countryName = inputEl.value;
+  console.log(countryName);
+
+  let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+
+  fetch(finalURL)
+    .then((response) => response.json())
+    .then((data) => {
+
+      console.log(data)
+
+      countryFlag.innerHTML = `<img src="${data[0].flags.png}" id="Country-flag" class="country_flag align-items-center" alt="flag-picture">`
+
+      countryCapital.innerText = "Capital: " + data[0].capital
+
+      countryContinent.innerText = "Continent: " + data[0].continents
+
+      countryPopulation.innerText = "Population: " + data[0].population
+
+      countryCurrency.innerText = "Currency: " + Object.keys(data[0].currencies)[0]
+
+    })
+};
+
+sendButton.addEventListener("click", countryInfo);
+
+
