@@ -24,7 +24,7 @@ function onInputChange() {
 
   const value = inputEl.value.toLowerCase();
 
-  if(value.length === 0)return;
+  if (value.length === 0) return;
 
   const filteredNames = [];
 
@@ -66,12 +66,15 @@ function removeAutocompleteDropdown() {
 //---
 
 function onCountryButtonClick(e) {
-e.preventDefault();
+  e.preventDefault();
 
-const buttonEl = e.target;
-inputEl.value = buttonEl.innerHTML;
+  removeAutocompleteDropdown();
+  const buttonEl = e.target;
+  inputEl.value = buttonEl.innerHTML;
 
-removeAutocompleteDropdown();
+  console.log(inputEl.value)
+
+  
 
 }
 
@@ -85,7 +88,7 @@ removeAutocompleteDropdown();
 // let searchInput = document.getElementById("search-bar");
 
 // searchButton.addEventListener('click', () => {
-    
+
 //     let name = searchInput.value;
 //     let finalUrl = `https://restcountries.com/v3.1/name/${name}?fullText=true`;
 
@@ -104,35 +107,40 @@ removeAutocompleteDropdown();
 
 //     });
 // });
-let startingCurrency = document.querySelector("#start_currency_selector")
-let finalCurrency = document.querySelector("#final_currency_selector")
+
+let startingCurrency = document.querySelector("#start_currency_selector");
+let finalCurrency = document.querySelector("#final_currency_selector");
+let convertCurrencyButton = document.querySelector("#convert_currency");
+let startingCurrencyValue = document.querySelector("#starting_currency_value")
+let finalCurrencyValue = document.querySelector("#final_currency_value")
 
 
 //     console.log(finalUrl);
 // })
 
-// Currency Convert
+// Currency list creation
 const currencyBaseURL = "https://api.exchangerate.host/"
 const currencyList = () => {
-    fetch(`${currencyBaseURL}symbols`)
-        .then(response => response.json())
-        .then(data => {
-            let countryCode = Object.keys(data.symbols)
-            for (currentCountry of countryCode) {
-                startingCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
-                finalCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
-            }
-        });
+  fetch(`${currencyBaseURL}symbols`)
+    .then(response => response.json())
+    .then(data => {
+      let countryCode = Object.keys(data.symbols)
+      for (currentCountry of countryCode) {
+        startingCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
+        finalCurrency.innerHTML += `<option value=${currentCountry}>${currentCountry}</option>`
+      }
+    });
 }
 currencyList()
 
+// Currency conversion - uses same base URL from list creator
+
 const currencyConvert = () => {
-    let baseURL = `https://api.exchangerate.host/convert?from=${startingCurrency}&to=${finalCurrency}`
-    fetch(baseURL)
-        .then(response => response.json())
-        .then(data => console.log(data))
-
-
-
-    console.log("test")
+  console.log(startingCurrency.value, finalCurrency.value, startingCurrencyValue.value)
+  fetch(`${currencyBaseURL}convert?amount=${startingCurrencyValue.value}&from=${startingCurrency.value}&to=${finalCurrency.value}`)
+    .then(response => response.json())
+    .then(data =>
+      finalCurrencyValue.value = data.result
+    )
 }
+convertCurrencyButton.addEventListener('click', currencyConvert)
