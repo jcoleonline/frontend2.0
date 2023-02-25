@@ -173,6 +173,8 @@ function countryInfo() {
 
       countryCurrency.innerText = "Currency: " + Object.keys(data[0].currencies)[0]
 
+      finalCurrency.innerHTML = `<option>${Object.keys(data[0].currencies)[0]}</option>`;
+
     })
 };
 
