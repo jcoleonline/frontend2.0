@@ -130,7 +130,20 @@ function countryInfo() {
     .then((response) => response.json())
     .then((data) => {
 
-      // console.log(data)
+      function addComma(num) {
+        if (num === null) return;
+        return (
+          num
+            .toString()
+            .split("")
+            .reverse()
+            .map((digit, index) =>
+              index != 0 && index % 3 === 0 ? `${digit},` : digit
+            )
+            .reverse()
+            .join("")
+        )
+      }
 
       countryFlag.innerHTML = `<img src="${data[0].flags.png}" id="Country-flag" class="country_flag align-items-center" alt="flag-picture">`
 
@@ -138,7 +151,7 @@ function countryInfo() {
 
       countryContinent.innerText = "Continent: " + data[0].continents
 
-      countryPopulation.innerText = "Population: " + data[0].population
+      countryPopulation.innerText = "Population: " + addComma(data[0].population)
 
       countryCurrency.innerText = "Currency: " + Object.keys(data[0].currencies)[0]
 
