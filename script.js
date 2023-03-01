@@ -17,8 +17,6 @@ async function getCountryData() {
     return country.name.common;
   });
 }
-
-
 //-----
 
 function onInputChange() {
@@ -79,44 +77,11 @@ function onCountryButtonClick(e) {
 }
 
 //----
-
-
-
-//----------------
-
-// let searchButton = document.getElementById("button-addon2");
-// let searchInput = document.getElementById("search-bar");
-
-// searchButton.addEventListener('click', () => {
-
-//     let name = searchInput.value;
-//     let finalUrl = `https://restcountries.com/v3.1/name/${name}?fullText=true`;
-
-//     console.log(finalUrl);
-//     fetch(finalUrl)
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log(data[0]);
-//         console.log(data[0].capital[0]);
-//         console.log(data[0].flags.svg);
-//         console.log(data[0].name.common);
-//         console.log(data[0].continents[0]);
-//         console.log(Object.keys(data[0].currencies)[0]);
-//         console.log(data[0].currencies[Object.keys(data[0].currencies)]);
-//         console.log();
-
-//     });
-// });
-
 let startingCurrency = document.querySelector("#start_currency_selector");
 let finalCurrency = document.querySelector("#final_currency_selector");
 let convertCurrencyButton = document.querySelector("#convert_currency");
 let startingCurrencyValue = document.querySelector("#starting_currency_value")
 let finalCurrencyValue = document.querySelector("#final_currency_value")
-
-
-//     console.log(finalUrl);
-// })
 
 // Currency list creation
 const currencyBaseURL = "https://api.exchangerate.host/"
@@ -132,7 +97,6 @@ const currencyList = () => {
     });
 }
 currencyList()
-
 
 // Currency conversion - uses same base URL from list creator
 
@@ -166,7 +130,7 @@ function countryInfo() {
     .then((response) => response.json())
     .then((data) => {
 
-      console.log(data)
+      // console.log(data)
 
       countryFlag.innerHTML = `<img src="${data[0].flags.png}" id="Country-flag" class="country_flag align-items-center" alt="flag-picture">`
 
