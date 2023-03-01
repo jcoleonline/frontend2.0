@@ -19,46 +19,41 @@
             <div id="autocomplete-wrapper" class="autocomplete-wrapper">
                 <input id="autocomplete-input" type="text" placeholder="Country">
             </div>
-            <button type="submit" class="btn-submit">Send</button>
+            <button type="button" class="btn-submit">Search</button>
         </form>
 
         <!-- country information -->
-        <div class="country_info_container d-flex flex-column justify-content-center align-items-center">
-            <img class="country_flag align-items-center" src="Ireland-flag-scaled.jpg" alt="flag-picture">
-           </div>
-           <div>
-            <h2 class="country_info">Capital:</h2>
-            <h2 class="country_info">Continent:</h2>
-            <h2 class="country_info">Population:</h2>
-            <h2 class="country_info">Currency:</h2>
-           </div>
-       
+        <div id="flag-container"
+            class="country_info_container d-flex flex-column justify-content-center align-items-center">
+            <!-- <img id="Country-flag" class="country_flag align-items-center" alt="flag-picture"> -->
+        </div>
+
+        <div id="Country_data">
+            <h2 id="Capital" class="country_info_1"></h2>
+            <h2 id="Continent" class="country_info"></h2>
+            <h2 id="Population" class="country_info"></h2>
+            <h2 id="Country-Currency" class="country_info"></h2>
+        </div>
+
         <!-- CURRENCY SELECTOR HTML -->
         <div class="d-flex flex-row justify-content-center align-items-end currency-box">
             <select class="start_currency " name="start_currency" id="start_currency_selector"></select>
             <select class="final_currency " name="final_currency" id="final_currency_selector"></select>
-<<<<<<< Updated upstream
-=======
 
-
-
->>>>>>> Stashed changes
         </div>
-               <div class="d-flex flex-row mb-3 justify-content-center">
+        <div class="d-flex flex-row justify-content-center">
             <br>
-            <input class="amount-input d-flex justify-content-end" type="number" name="" id=""  value="0">
-            <input class="cur-output d-flex justify-content-start" type="number" name="" id="final_currency_inpt" disabled value="0">
+            <input class="amount-input d-flex justify-content-end" type="number" name="" id="starting_currency_value"
+                value="1">
+            <input class="cur-output d-flex justify-content-start" type="number" name="" id="final_currency_value"
+                disabled value="0">
         </div>
-        <!-- SCRIPT INSERTION -->
-    </div>
 
-    <!-- CURRENCY SELECTOR HTML -->
-    <!-- <select name="start_currency" id="start_currency_selector"></select>
-    <select name="final_currency" id="final_currency_selector"></select>
-    <br>
-    <input class="cur-input" type="number" name="" id="" disabled value="0">
-    <input class="cur-input" type="number" name="" id="final_currency_inpt" disabled value="0"> -->
-    <!-- SCRIPT INSERTION -->
+        <div class="d-flex flex-row justify-content-center">
+            <button type="submit" class="btn-submit2" id="convert_currency">Convert</button>
+        </div>
+
+    </div>
     <script src="script.js"></script>
 </body>
 
