@@ -51,6 +51,16 @@ function createAutocompleteDropdown(List) {
     listItem.appendChild(countryButton);
 
     listEl.appendChild(listItem);
+
+    countryFlag.classList.remove('scale-in-center');
+    countryCapital.classList.remove('scale-in-center');
+    countryContinent.classList.remove('scale-in-center');
+    countryPopulation.classList.remove('scale-in-center');
+    countryCurrency.classList.remove('scale-in-center');
+
+    
+
+
   });
 
   document.querySelector("#autocomplete-wrapper").appendChild(listEl);
@@ -71,6 +81,8 @@ function onCountryButtonClick(e) {
 
   const buttonEl = e.target;
   inputEl.value = buttonEl.innerHTML;
+
+  
 
   removeAutocompleteDropdown();
 
@@ -146,14 +158,21 @@ function countryInfo() {
       }
 
       countryFlag.innerHTML = `<img src="${data[0].flags.png}" id="Country-flag" class="country_flag align-items-center" alt="flag-picture">`
+      countryFlag.classList.add('scale-in-center');
+     
 
       countryCapital.innerText = "Capital: " + data[0].capital
+      countryCapital.classList.add('scale-in-center');
 
       countryContinent.innerText = "Continent: " + data[0].continents
+      countryContinent.classList.add('scale-in-center');
 
       countryPopulation.innerText = "Population: " + addComma(data[0].population)
+      countryPopulation.classList.add('scale-in-center');
 
       countryCurrency.innerText = "Currency: " + Object.keys(data[0].currencies)[0]
+      countryCurrency.classList.add('scale-in-center');
+      
 
       finalCurrency.innerHTML = `<option>${Object.keys(data[0].currencies)[0]}</option>`;
 

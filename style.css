@@ -125,6 +125,7 @@ body {
     box-shadow: 2px 2px 7px 1px #00000066;
 }
 
+
 .currency-box {
     margin-top: 20px;
 }
@@ -171,6 +172,7 @@ body {
     margin-left: 10px;
     color: rgb(255, 255, 255);
     text-shadow: 1px 2px 2px #000000;
+
 }
 
 .country_info_1 {
@@ -178,4 +180,21 @@ body {
     margin-left: 10px;
     color: white;
     text-shadow: 1px 2px 2px #000000;
+
 }
+
+@keyframes scale-in-center {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .scale-in-center {
+	animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+  
