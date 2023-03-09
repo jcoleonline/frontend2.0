@@ -10,4 +10,4 @@ Country Currency Converter is a Country information research tool that can also 
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/1fWaXNngAh-DdqR0j1VGTmFt1e40i3l5q/view?usp=share_link)
+![image](https://user-images.githubusercontent.com/120695563/224184476-3da03b52-81a4-4436-abd5-a66f4828b4a6.png)
