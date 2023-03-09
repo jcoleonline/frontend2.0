@@ -11,3 +11,6 @@ Country Currency Converter is a Country information research tool that can also 
 ## Screenshots
 
 ![image](https://user-images.githubusercontent.com/120695563/224184476-3da03b52-81a4-4436-abd5-a66f4828b4a6.png)
+![image](https://user-images.githubusercontent.com/120695563/224184629-4566e85e-9f62-4cac-8d64-547173762376.png)
+![image](https://user-images.githubusercontent.com/120695563/224184691-1e5d8495-1d97-4ea4-98e0-2f3bdd59c770.png)
+
