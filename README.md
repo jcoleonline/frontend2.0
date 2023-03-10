@@ -14,3 +14,9 @@ Country Currency Converter is a Country information research tool that can also 
 ![image](https://user-images.githubusercontent.com/120695563/224184629-4566e85e-9f62-4cac-8d64-547173762376.png)
 ![image](https://user-images.githubusercontent.com/120695563/224184691-1e5d8495-1d97-4ea4-98e0-2f3bdd59c770.png)
 
+## Countries
+
+The countries are populated from an api that takes in the users input and begins to autofill the country selector
+
+Once the country is selected, the currency of that country is autofilled into the desired country
+
